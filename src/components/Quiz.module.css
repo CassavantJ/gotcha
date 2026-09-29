@@ -1,0 +1,311 @@
+.quiz {
+  position: relative;
+  display: grid;
+  gap: 0.8rem;
+  width: min(40rem, 100%);
+  margin: 0 auto;
+  padding: 1rem max(0.75rem, env(safe-area-inset-left)) 2rem;
+}
+
+.hud {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.number {
+  display: grid;
+  place-items: center;
+  min-width: 2.8rem;
+  height: 2.8rem;
+  padding: 0 0.5rem;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-weight: 900;
+  box-shadow: 0 3px 0 var(--ink);
+}
+
+button.number:hover {
+  background: #fff3bf;
+}
+
+.lives {
+  display: flex;
+  flex: 1;
+  gap: 0.25rem;
+}
+
+.heart {
+  width: 1.9rem;
+  height: 1.9rem;
+  color: #fff;
+  fill: transparent;
+  stroke-width: 2.5;
+  opacity: 0.55;
+}
+
+.heart[data-full] {
+  color: var(--ink);
+  fill: #ff6b6b;
+  opacity: 1;
+}
+
+.heartButton {
+  display: grid;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.pass {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2.6rem;
+  padding: 0 0.9rem 0 0.7rem;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: #ffe066;
+  color: var(--ink);
+  font-weight: 800;
+  box-shadow: 0 3px 0 var(--ink);
+}
+
+.pass:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.passIcon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.passCount {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #ffe066;
+  font-size: 0.85rem;
+}
+
+/* The fuse: a rope that burns from right to left, with a spark at the end. */
+.fuse {
+  position: relative;
+  height: 1rem;
+}
+
+.fuse svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.fuseBurnt {
+  stroke: rgb(0 0 0 / 0.25);
+  stroke-width: 4;
+  stroke-dasharray: 2 2;
+}
+
+.fuseRope {
+  stroke: #d9a066;
+  stroke-width: 5;
+}
+
+.spark {
+  position: absolute;
+  top: 50%;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 20%, #ffd43b 35%, #ff6b35 70%, transparent 72%);
+  transform: translate(-50%, -50%);
+  animation: sparkle 0.15s linear infinite alternate;
+}
+
+.card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.3rem 1.2rem 1.4rem;
+  border: 4px solid var(--ink);
+  border-radius: 1.25rem;
+  background: #fffdf6;
+  color: var(--ink);
+  box-shadow: 0 7px 0 var(--ink);
+}
+
+.prompt {
+  margin: 0;
+  font-size: clamp(1.35rem, 4.5vw, 1.8rem);
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  outline: none;
+}
+
+.body {
+  display: grid;
+  gap: 1rem;
+}
+
+.display {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(3rem, 14vw, 5rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  -webkit-text-stroke: 2px var(--ink);
+}
+
+:global(.art) {
+  display: block;
+  width: min(14rem, 70%);
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Keys */
+
+.keyboard {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.keyRow {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.key {
+  flex: 0 1 2.6rem;
+  min-width: 0;
+  height: 2.8rem;
+  border: 2px solid var(--ink);
+  border-radius: 0.5rem;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 800;
+  box-shadow: 0 3px 0 var(--ink);
+}
+
+.key:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--ink);
+}
+
+.typeForm {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.typeInput {
+  flex: 1;
+  min-width: 0;
+  height: 3.2rem;
+  padding: 0 1rem;
+  border: 3px solid var(--ink);
+  border-radius: 0.8rem;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.enter {
+  padding: 0 1.2rem;
+  border: 3px solid var(--ink);
+  border-radius: 0.8rem;
+  background: #8ce99a;
+  color: var(--ink);
+  font-weight: 800;
+  box-shadow: 0 4px 0 var(--ink);
+}
+
+/* Feedback */
+
+.feedback {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.3rem;
+  pointer-events: none;
+}
+
+.feedback p {
+  margin: 0;
+  padding: 0.3rem 1.2rem;
+  border: 4px solid var(--ink);
+  border-radius: 999px;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--ink);
+  box-shadow: 0 5px 0 var(--ink);
+}
+
+.quiz[data-feedback='right'] .feedback p {
+  background: #8ce99a;
+}
+
+.quiz[data-feedback='wrong'] .feedback p {
+  background: #ff8787;
+}
+
+.quiz[data-feedback] .card {
+  opacity: 0.35;
+}
+
+.quiz[data-feedback='wrong'] .card {
+  animation: shake 0.4s ease;
+}
+
+.toast {
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  z-index: 10;
+  margin: 0;
+  padding: 0.5rem 1.1rem;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: #ffe066;
+  color: var(--ink);
+  font-weight: 900;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 0 var(--ink);
+}
+
+@keyframes shake {
+  20%,
+  60% {
+    transform: translateX(-8px);
+  }
+
+  40%,
+  80% {
+    transform: translateX(8px);
+  }
+}
+
+@keyframes sparkle {
+  to {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spark,
+  .quiz[data-feedback='wrong'] .card {
+    animation: none;
+  }
+}
